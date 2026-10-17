@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison Élégance - Sacs à Main de Luxe</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">Maison Élégance</a>
+            <div class="badge-trust">
+                <i class="fa-solid fa-truck-fast"></i> Livraison gratuite au Maroc
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+        <div class="store-grid">
+            
+            <!-- Product Section (Card) -->
+            <section class="card product-card">
+                <div class="badge-promo">Collection Exclusive</div>
+                
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <img id="productImage" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1000&auto=format&fit=crop" alt="Sac à main de luxe" class="main-image">
+                </div>
+
+                <!-- Product Details -->
+                <div class="product-details">
+                    <h1 id="productTitle" class="product-title">Sac à Main Luxe - Élégance Parisienne</h1>
+                    
+                    <div class="price-container">
+                        <span id="productPriceDisplay" class="current-price">350 DH</span>
+                        <span class="original-price">550 DH</span>
+                        <span class="discount-badge">-36%</span>
+                    </div>
+
+                    <p class="product-description">
+                        Conçu avec du cuir synthétique haut de gamme, ce sac allie élégance contemporaine et praticité au quotidien. Livré avec sa bandoulière ajustable.
+                    </p>
+
+                    <!-- Color Selector -->
+                    <div class="option-group">
+                        <label class="option-label">Couleur sélectionnée : <span id="selectedColorName" class="highlight-text">Rose Poudré</span></label>
+                        <div class="color-options" id="colorPickerContainer">
+                            <button type="button" class="color-btn active" data-color="Rose Poudré" data-bg="#F8C8DC" title="Rose Poudré"></button>
+                            <button type="button" class="color-btn" data-color="Noir Élégant" data-bg="#2B2B2B" title="Noir Élégant"></button>
+                            <button type="button" class="color-btn" data-color="Beige Crème" data-bg="#F5F5DC" title="Beige Crème"></button>
+                            <button type="button" class="color-btn" data-color="Rouge Bordeau" data-bg="#800020" title="Rouge Bordeau"></button>
+                        </div>
+                    </div>
+
+                    <!-- Quantity Counter -->
+                    <div class="option-group">
+                        <label class="option-label">Quantité :</label>
+                        <div class="quantity-control">
+                            <button type="button" id="btnMinus" class="qty-btn"><i class="fa-solid fa-minus"></i></button>
+                            <input type="number" id="qtyInput" class="qty-input" value="1" min="1" max="10" readonly>
+                            <button type="button" id="btnPlus" class="qty-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Features Highlights -->
+                    <div class="features-list">
+                        <div class="feature-item"><i class="fa-solid fa-shield-halved"></i> Qualité Garantie</div>
+                        <div class="feature-item"><i class="fa-solid fa-box-open"></i> Paiement à la livraison</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Order Form Section -->
+            <section class="card form-card">
+                <div class="form-header">
+                    <h2><i class="fa-solid fa-bag-shopping"></i> Passer Votre Commande</h2>
+                    <p>Veuillez remplir vos informations de livraison ci-dessous.</p>
+                </div>
+
+                <form id="orderForm" class="checkout-form" novalidate>
+                    
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullName"><i class="fa-regular fa-user"></i> Nom et Prénom *</label>
+                        <input type="text" id="fullName" class="form-input" placeholder="ex: Sarah Bennani" required>
+                        <span class="error-msg" id="fullNameError">Veuillez entrer votre nom complet.</span>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="phone"><i class="fa-solid fa-phone"></i> Numéro de Téléphone *</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="ex: 0612345678" required>
+                        <span class="error-msg" id="phoneError">Veuillez entrer un numéro valide (10 chiffres).</span>
+                    </div>
+
+                    <!-- City Dropdown -->
+                    <div class="form-group">
+                        <label for="city"><i class="fa-solid fa-city"></i> Ville de Livraison *</label>
+                        <select id="city" class="form-input" required>
+                            <option value="" disabled selected>Sélectionnez votre ville...</option>
+                            <option value="Casablanca" data-fee="35">Casablanca (35 DH)</option>
+                            <option value="Rabat" data-fee="35">Rabat (35 DH)</option>
+                            <option value="Tanger" data-fee="35">Tanger (35 DH)</option>
+                            <option value="Marrakech" data-fee="35">Marrakech (35 DH)</option>
+                            <option value="Agadir" data-fee="40">Agadir (40 DH)</option>
+                            <option value="Fès" data-fee="35">Fès (35 DH)</option>
+                            <option value="Meknès" data-fee="35">Meknès (35 DH)</option>
+                            <option value="Oujda" data-fee="45">Oujda (45 DH)</option>
+                            <option value="Autre Ville" data-fee="45">Autre ville au Maroc (45 DH)</option>
+                        </select>
+                        <span class="error-msg" id="cityError">Veuillez choisir votre ville.</span>
+                    </div>
+
+                    <!-- Delivery Address -->
+                    <div class="form-group">
+                        <label for="address"><i class="fa-solid fa-location-dot"></i> Adresse Détaillée *</label>
+                        <textarea id="address" class="form-input" rows="2" placeholder="Quartier, Rue, Numéro d'appartement/maison..." required></textarea>
+                        <span class="error-msg" id="addressError">Veuillez spécifier votre adresse exacte.</span>
+                    </div>
+
+                    <!-- Order Summary Box -->
+                    <div class="order-summary">
+                        <h3>Récapitulatif de la commande</h3>
+                        <div class="summary-line">
+                            <span>Sous-total (<span id="summaryQty">1</span> article)</span>
+                            <span id="subtotalDisplay">350 DH</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Frais de livraison</span>
+                            <span id="deliveryFeeDisplay">35 DH</span>
+                        </div>
+                        <hr class="summary-divider">
+                        <div class="summary-line total-line">
+                            <span>Total à payer</span>
+                            <span id="finalTotalDisplay" class="grand-total">385 DH</span>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="button-group">
+                        <button type="submit" class="btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i> Commander via WhatsApp
+                        </button>
+                        <button type="button" id="btnReset" class="btn-reset">
+                            <i class="fa-solid fa-rotate-right"></i> Réinitialiser le formulaire
+                        </button>
+                    </div>
+
+                    <p class="privacy-note">
+                        <i class="fa-solid fa-lock"></i> Vous allez être redirigé vers WhatsApp pour finaliser l'envoi de votre commande.
+                    </p>
+
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Maison Élégance. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast"></div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
