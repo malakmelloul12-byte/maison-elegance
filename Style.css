@@ -1,0 +1,483 @@
+/* ==========================================
+   1. VARIABLES & DESIGN SYSTEM
+   ========================================== */
+:root {
+    /* Color Palette */
+    --primary-pink: #F8C8DC;       /* Blush Pink */
+    --primary-hover: #F2B0CA;
+    --soft-pink-bg: #FDF6F9;
+    --accent-gold: #C96880;        /* Rose Gold Accent */
+    --deep-text: #2D2528;          /* Charcoal text */
+    --muted-text: #7A6B72;
+    --card-bg: #FFFFFF;
+    --input-border: #E8D7E0;
+    --error-color: #E53935;
+    --success-color: #2E7D32;
+    --whatsapp-green: #25D366;
+    
+    /* Typography */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* UI Spacing & Roundness */
+    --border-radius-lg: 20px;
+    --border-radius-md: 12px;
+    --border-radius-sm: 8px;
+    --shadow-soft: 0 10px 30px rgba(201, 104, 128, 0.08);
+    --shadow-hover: 0 15px 35px rgba(201, 104, 128, 0.15);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================
+   2. GLOBAL STYLES & RESET
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+body {
+    background-color: var(--soft-pink-bg);
+    color: var(--deep-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   3. HEADER NAVBAR
+   ========================================== */
+.navbar {
+    background: var(--card-bg);
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.badge-trust {
+    background-color: var(--soft-pink-bg);
+    color: var(--accent-gold);
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-pink);
+}
+
+/* ==========================================
+   4. LAYOUT & CARDS
+   ========================================== */
+.main-content {
+    flex: 1;
+    max-width: 1100px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.store-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .store-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(248, 200, 220, 0.3);
+    transition: var(--transition);
+}
+
+/* ==========================================
+   5. PRODUCT SECTION
+   ========================================== */
+.product-card {
+    position: relative;
+}
+
+.badge-promo {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: var(--accent-gold);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.product-gallery {
+    width: 100%;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    background-color: #FAF8F9;
+}
+
+.main-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
+}
+
+.product-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    color: var(--deep-text);
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.current-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.original-price {
+    font-size: 1.2rem;
+    text-decoration: line-through;
+    color: var(--muted-text);
+}
+
+.discount-badge {
+    background: #FFE8EF;
+    color: var(--accent-gold);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+}
+
+.product-description {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Controls & Options */
+.option-group {
+    margin-bottom: 1.5rem;
+}
+
+.option-label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+}
+
+.highlight-text {
+    color: var(--accent-gold);
+}
+
+.color-options {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.color-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid white;
+    outline: 2px solid #E8D7E0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.color-btn.active {
+    outline: 2px solid var(--accent-gold);
+    transform: scale(1.1);
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+.qty-btn {
+    background: #FAF8F9;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: var(--deep-text);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.qty-btn:hover {
+    background: var(--primary-pink);
+}
+
+.qty-input {
+    width: 50px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--deep-text);
+    background: white;
+}
+
+.features-list {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--soft-pink-bg);
+}
+
+.feature-item {
+    font-size: 0.85rem;
+    color: var(--muted-text);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.feature-item i {
+    color: var(--accent-gold);
+}
+
+/* ==========================================
+   6. ORDER FORM SECTION
+   ========================================== */
+.form-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--deep-text);
+    margin-bottom: 0.3rem;
+}
+
+.form-header p {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--deep-text);
+}
+
+.form-group label i {
+    color: var(--accent-gold);
+    margin-right: 0.3rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid var(--input-border);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background-color: #FAF8F9;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(201, 104, 128, 0.1);
+}
+
+.form-group.error .form-input {
+    border-color: var(--error-color);
+}
+
+.error-msg {
+    display: none;
+    color: var(--error-color);
+    font-size: 0.75rem;
+    margin-top: 0.3rem;
+}
+
+.form-group.error .error-msg {
+    display: block;
+}
+
+/* Summary Box */
+.order-summary {
+    background-color: var(--soft-pink-bg);
+    border-radius: var(--border-radius-md);
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    border: 1px dashed var(--primary-pink);
+}
+
+.order-summary h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--deep-text);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--muted-text);
+    margin-bottom: 0.5rem;
+}
+
+.summary-divider {
+    border: none;
+    border-top: 1px solid var(--input-border);
+    margin: 0.8rem 0;
+}
+
+.total-line {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--deep-text);
+}
+
+.grand-total {
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.btn-whatsapp {
+    width: 100%;
+    background-color: var(--accent-gold);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    box-shadow: 0 8px 20px rgba(201, 104, 128, 0.3);
+    transition: var(--transition);
+}
+
+.btn-whatsapp:hover {
+    background-color: #B2536A;
+    transform: translateY(-2px);
+}
+
+.btn-reset {
+    background: transparent;
+    border: none;
+    color: var(--muted-text);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+.btn-reset:hover {
+    color: var(--deep-text);
+    text-decoration: underline;
+}
+
+.privacy-note {
+    font-size: 0.75rem;
+    color: var(--muted-text);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* ==========================================
+   7. FOOTER & TOAST
+   ========================================== */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.85rem;
+    color: var(--muted-text);
+    margin-top: auto;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #323232;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
